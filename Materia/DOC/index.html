@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Doc - Materia Admin Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/prettify.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300' rel='stylesheet' type='text/css'>
+
+</head>
+<body onload="prettyPrint()">
+
+    <!-- header -->
+    <header class="site-head">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+               <a class="navbar-brand" href="#">Materia - DOC</a>
+            </div>
+        </nav>
+    </header>
+    <!-- #end header -->
+    
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <ul class="nav doc-sidenav">
+                    <li><a href="#thanks">Thanks</a></li>
+                    <li><a href="#intro">Introduction</a></li>
+                    <li><a href="#file-structure">File Structure</a></li>
+                    <li><a href="#bower">Bower</a></li>
+                    <li><a href="#less">Less</a></li>
+                    <li><a href="#grunt">Automation with Grunt</a></li>
+                    <li><a href="#run">How to Run It?</a></li>
+                    <li><a href="#custom_directive">Custom Angular Directive</a></li>
+                    <li><a href="#in_dev">In Development</a></li>
+                    <li><a href="#basic_html">Basic Template Structure</a></li>
+                    <li><a href="#credits">Credits</a></li>
+              </ul>
+            </div>
+
+            <div class="col-md-9 doc-content">
+                <!-- thanks -->
+                <section id="thanks">
+                    <div class="page-header">
+                        <h2>Thank you</h2>
+                    </div>
+                    <p class="lead">Thank you for purchasing. If you have any questions that are beyond the scope of this documentation, please feel free to <a href="http://themeforest.net/user/solutionportal" target="_blank">contact me</a>. Rate it if you like it, thanks so much!
+                    </p>
+                </section>
+
+                <!-- intro -->
+                <section id="intro">
+                    <div class="page-header">
+                        <h2>Introduction</h2>
+                    </div>
+                    <p class="lead">Materia is fully responsive admin web app built with AngularJS, Bootstrap 3.3 and LESS stylesheet. Most of the jquery plugins is compatible with angularjs so it does work.
+                    </p>
+                </section>
+
+
+                <!-- file structure -->
+                <section id="file-structure">
+                    <div class="page-header">
+                        <h2>File Structure</h2>
+                    </div>
+                    <p class="lead">Within the download you'll find the following file structure and contents</p>
+                    <p>Once downloaded, unzip the compressed folder  and you'll see something like this:</p>
+                    <pre class="prettyprint">
+├── <strong>Materia</strong>/                       
+    ├── <strong>ANGULAR</strong>                         ───>  Angular version
+        ├── <b>src</b>/                        ───> Contains the develop version of Rainbow Admin Template.
+            ├── fonts/                      └──> contains icon fonts.
+            ├── images/                     └──> Demo images.
+            ├── scripts/                    └──> All the custom scripts (included from bower.io)
+            ├── styles/                     └──> All the custom stylesheets (less files)
+            ├── views/                      └──> All the custom templates (partials)
+                └── index.html
+        ├── bower.json                  ───> used by bower npm 
+        ├── Gruntfile.js                ───> used by grunt npm to create tasks
+        ├── package.json                ───> grunt tasks scripts.
+        ├── <b>dist</b>/                       ───> contains the dist version generated with grunt tasks.
+
+    ├── <strong>HTML</strong>                           ───>  HTML version <b style="color: blue">(NEW)</b>
+    ├── <strong>DOC</strong>                            ───>  The DOC you're reading  </pre>
+
+                
+                <p class="lead">Introduction to the important files:</p>
+                <dl class="dl-horizontal">
+                    <dt>"bower.json"</dt>
+                    <dd> is the JSON file of <a href="http://bower.io/">Twitter Bower</a> (You can click the link to know more).</dd>
+                    <dt>"Gruntfile.js"</dt>
+                    <dd> is the configure file of <a href="http://gruntjs.com/">Grunt</a> (You can click the link to know more).
+                        It is used to configure or define tasks and load Grunt plugins.
+                    </dd>
+                    <dt>"package.json"</dt>
+                    <dd> is the JSON file of <a href="http://gruntjs.com/">Grunt</a> (You can click the link to know more).
+                        This file is used by npm to store metadata for projects published as <a href="https://npmjs.org/">npm</a> modules. You will list grunt and the Grunt plugins your project needs as <a href="https://npmjs.org/doc/json.html#devDependencies">devDependencies</a> in this file.
+                    </dd>
+                </dl>
+            </section>
+
+
+            <section id="bower">
+                <div class="page-header">
+                  <h2>Bower</h2>
+                </div>
+
+                <div class="alert alert-info">
+                   <p><strong>NOTE</strong>: You don't need bower anyway because all the scripts and css files already included with <strong>src</strong> folder.</p>
+                </div>
+                <p> As most of the plugins's css files must be edited before used by template, so it's not possible to directly reference it from <strong>bower_components</strong> folder. This means you don't need to run <code>bower install</code> command to work with development version (src). There's also <strong>bower.json</strong> file included to see which scripts are used by the template.</p>                
+        
+            </section>
+
+            <section id="less">
+                <div class="page-header">
+                  <h2>Less</h2>
+                </div>
+                <p>Materia uses <a href="lesscss.org" target="_blank">less</a> to generate css files. The css files generation has been simplified by grunt task runner (read later). Also, we use less version of bootstrap (3.3.3) so <strong>variables.less</strong> file of bootsrap is shared among all the stylesheets and it's modified. So, if newer version is available for upgrade, then simply copy the bootstrap less folder and do the following:</p>
+                <ul>
+                    <li>Move the <strong>variables.less</strong> file one step back to <strong>src/styles</strong>. </li>
+                    <li>Open the <strong>bootstrap.less</strong> file and change the above file path to point to the new path</li>
+                </ul>
+                <p>The main less file is <strong>main.less</strong>. It includes all the less files except bootstrap folder. On output, less compiler generate two css files in <strong>dist</strong> folder -- <strong>main.min.css</strong> and <strong>boostrap.min.css</strong>.</p>
+
+            </section>
+
+
+            <!-- grunt -->
+            <section id="grunt">
+                <div class="page-header">
+                  <h2>Automation with Grunt</h2>
+                </div>
+
+                <p class="lead"><a href="http://gruntjs.com/">Grunt</a> is a JavaScript task runner (Automation), save yourself from repetitive tasks.</p>
+                <p>It's probably a bit complex to you if it's your first time using Grunt. However, <strong>you'll fail in love with it</strong> once you get it, it saves you from repetitive tasks. Project like jQuery, Bootstrap and many more use and love GruntJS.</p>
+                <dl class="dl-horizontal">
+                    <dt>"Gruntfile.js"</dt>
+                    <dd> is the configure file of <a href="http://gruntjs.com/">Grunt</a> (You can click the link to know more).
+                        It is used to configure or define tasks and load Grunt plugins.
+                    </dd>
+                    <dt>"package.json"</dt>
+                    <dd> is the JSON file of <a href="http://gruntjs.com/">Grunt</a> (You can click the link to know more).
+                        This file is used by npm to store metadata for projects published as <a href="https://npmjs.org/">npm</a> modules. You will list grunt and the Grunt plugins your project needs as <a href="https://npmjs.org/doc/json.html#devDependencies">devDependencies</a> in this file.
+                    </dd>
+                </dl>
+                <pre class="prettyprint"> "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-copy": "^0.7.0",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-less": "^0.12.0",
+    "grunt-contrib-uglify": "^0.6.0",
+    "grunt-processhtml": "^0.3.7"
+ }</pre>
+               
+                <h4>Important grunt tasks commands</h4>
+                <ul>
+                    <li><p><pre style="display:inline; padding:4px 5px">grunt build</pre> will build the production version of template in <code>dist</code> folder.</p>
+                    </li>
+                    <li>
+                        <p> <pre style="display:inline; padding:4px 5px">grunt dev</pre> will compile less file into css (bootstrap.min.css and main.min.css) in <code>src/_tmp</code> folder.</p>
+                    </li>
+                    <li>
+                        <p> <pre style="display:inline; padding:4px 5px">grunt cleanBuild</pre> will clean the <code>dist</code> folder.</p>
+                    </li>
+                </ul>
+            </section>
+            
+
+            <!-- how to run it -->
+            <section id="run">
+                <div class="page-header">
+                    <h2>How to Run It?</h2>
+                </div>
+                <p>Simply upload the <code>dist</code> folder into the server and run it. However if you want to test it locally, then do the following:</p>
+                <ul>
+                    <li>Install a server locally. You can use any of them (WAMP, MAMP, nodejs *http-server*). Here we are using nodejs <a href="https://www.npmjs.com/package/http-server">http-server</a></li>
+                    <li>Then execute this command <code>http-server</code> from the command line.</li>
+                    <li>It'll return something like this:<div class="well well-sm">Starting up http-server, serving ./ on port: 8080</div></li>
+                    <li>Then you can visit the template on <pre>http://localhost:8080</pre> within your browser.</li>
+                </ul>
+            </section>
+
+
+            <!-- custom angular directive -->
+            <section id="custom_directive">
+                <div class="page-header">
+                    <h2>Custom Angular Directive</h2>
+                </div>
+                  <p>There are some custom directive written for this template. The options provided you'll find in the file. Here's I'll provide the list:</p>
+                  <ul>
+                    <li><code>ui-range-slider</code>: For generating custom bootstrap range. Used by <code>boostrap-slider.js</code> plugin.</li>
+                    <li><code>collapse-nav-accordion</code>: For collapsing child elements of sidebar nav.</li>
+                    <li><code>toggle-off-canvas</code>: Toggle Off-canvas sidebar nav in mobile device.</li>
+                    <li><code>highlight-active</code>: For highlighting active nav.</li>
+                    <li><code>ui-checkbox</code>: For custom checkbox and radio.</li>
+                    <li><code>custom-scrollbar</code>: For custom scrollbar. Used with <code>perfect-scrollbar.js</code> plugin.</li>
+                    <li><code>custom-page</code>: Used by custom pages in full body mode (no sidebar and header).</li>
+                    <li><code>sparkline</code>: Quickly generate inline charts.</li>
+                    <li><code>angular-c3</code>: C3 chart directive. It's an element based directive.</li>
+                    <li><code>ui-range-slider</code>: Create range slider.</li>
+                </ul>
+            </section>
+
+
+            <!-- in development -->
+            <section id="in_dev">
+                <div class="page-header">
+                    <h2>Custom Angular Directive</h2>
+                </div>
+                <p class="lead">In order to do development with it, you'll need have the following tools installed:</p>
+                <li><a href="http://nodejs.org/">Node.js</a> (NPM comes along with it)</li>
+                <li><a href="http://gruntjs.com/">Grunt (npm package)</a> for task automation</li>
+                <li><a href="http://bower.io/#install-bower">Bower (npm package)</a> for dependency (optional). I've already included all the necessary scripts from bower in src/scripts directory.</li>
+                <li><a href="http://lesscss.org/#using-less-installation">lesscss (npm package)</a> for compiling less to css</li>
+                <p>And you'll need to know how to use them, click the links to learn more if you not familiar with these yet. <strong>If it's your first time using these tools</strong>, it's probably too complex or even overwhelming to you. You'd better find someone to help you.</p>
+                <p class="lead">If you already know how to use them, then just do a few things to start developing:</p>
+                <ol>
+                  <li>Install all the above npm packages and nodejs</li>
+                  <li>Start the <code>http-server</code> inside the <strong>src</strong> folder using the command<code>http-server</code>.</li>
+              </ol>
+              <p>All the files for development are under <strong>Materia/src/</strong> folder.</p>
+            </section>
+
+
+            <!-- Basic Template structure -->
+            <section id="basic_html">
+                <div class="page-header">
+                    <h2>Basic Template Structure</h2>
+                </div>
+                <p>The basic structure of template (index.html) is quite simple. It contains 2 parts: <strong>The header</strong>, which load all the stylesheets. <strong>The body</strong>, which contains the content of App and load all the scripts. </p>
+                
+
+                <p class="lead"><strong>The Header</strong></p>
+                <pre class="prettyprint">&lt;html&gt;
+&lt;head&gt;
+ &lt;meta charset=&quot;utf-8&quot;&gt;
+ &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, maximum-scale=1&quot;&gt;
+ &lt;meta name=&quot;description&quot; content=&quot;Materia - Admin Template with Angularjs&quot;&gt;
+ &lt;meta name=&quot;keywords&quot; content=&quot;minty, webapp, admin, dashboard, template, ui&quot;&gt;
+ &lt;meta name=&quot;author&quot; content=&quot;solutionportal&quot;&gt;
+ &lt;!-- &lt;base href=&quot;/&quot;&gt; --&gt;
+
+ &lt;title&gt;Materia - Admin Template&lt;/title&gt;
+
+ &lt;!-- Icons --&gt;
+ &lt;link rel=&quot;stylesheet&quot; href=&quot;fonts/ionicons/css/ionicons.min.css&quot;&gt;
+ &lt;link rel=&quot;stylesheet&quot; href=&quot;fonts/font-awesome/css/font-awesome.min.css&quot;&gt;
+
+ 
+ &lt;!-- Css/Less Stylesheets --&gt;
+ &lt;link rel="stylesheet" href="styles/angular-material.min.css"&gt;
+ &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/vendors/bootstrap.min.css&quot;&gt;
+ &lt;link rel=&quot;stylesheet/less&quot; href=&quot;styles/main.less&quot;&gt;
+
+ 
+ &lt;link href=&#39;http://fonts.googleapis.com/css?family=Roboto:400,500,700,300&#39; rel=&#39;stylesheet&#39; type=&#39;text/css&#39;&gt;
+
+ &lt;!-- Match Media polyfill for IE9 --&gt;
+ &lt;!--[if IE 9]&gt; &lt;script src=&quot;scripts/ie/matchMedia.js&quot;&gt;&lt;/script&gt; &lt;![endif]--&gt; 
+
+&lt;/head&gt;
+                </pre>
+                <br>
+                <p class="lead"><strong>The Body</strong></p>
+                <pre class="prettyprint">&lt;body ng-app="app" 
+    id="app" custom-page
+    class="app off-canvas {{themeActive}}" ng-class="{'nav-expand': navFull}"
+    ng-controller="AppCtrl"&gt;
+
+     &lt;header class="site-head" ng-controller="HeadCtrl"
+            id="site-head" ng-class="{'fixedHeader': fixedHeader}"
+            ng-include=" 'views/header.html' "&gt;
+     &lt;!-- linked header (static) view --&gt;
+     &lt;/header&gt;
+
+
+    &lt;!-- main-container --&gt;
+    &lt;div  class="main-container clearfix" ng-class="{'nav-expand': navFull, 'nav-horizontal': navHorizontal}"&gt;
+        &lt;!-- main navigation --&gt;
+        &lt;aside class="nav-wrap" ng-class="{'nav-expand': navFull, 'nav-offcanvas': navOffCanvas}"
+                id="site-nav" custom-scrollbar
+                ng-include=" 'views/nav.html' "&gt;
+
+        &lt;/aside&gt;
+
+        &lt;!-- content-here --&gt;
+        &lt;div ng-class="{'nav-expand': navFull, 'fixedHeader': fixedHeader}"
+            class="content-container" 
+            id="content"
+            ng-view&gt;
+        &lt;/div&gt;
+
+    &lt;/div&gt; &lt;!-- #end main-container --&gt;
+
+
+    &lt;div class="site-settings clearfix hidden-xs" ng-class="{open: isSettingsOpen}"&gt;
+        &lt;!-- site settings panel --&gt;
+    &lt;/div&gt;
+
+       
+    &lt;script src="scripts/vendors.js"&gt;&lt;/script&gt;
+    &lt;script src="scripts/plugins.js"&gt;&lt;/script&gt;
+    &lt;script src="scripts/app.js"&gt;&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+</pre>
+            </section>
+
+
+            <!-- credits -->
+            <section id="credits">
+                <div class="page-header">
+                    <h2>Credits</h2>
+                </div>
+                <ul>
+                  <li><a href="http://getbootstrap.com/">Bootstrap</a> The most popular front-end framework for developing responsive, mobile first projects on the web.</li>
+                  <li><a href="http://jquery.com/">jQuery</a> write less, do more.</li>
+                  <li><a href="http://angularjs.org/">AngularJS</a> HTML enhanced for web Apps!</li>
+                  <li><a href="https://github.com/angular-ui/bootstrap">angular-bootstrap</a> Native AngularJS (Angular) directives for Twitter's Bootstrap. </li>
+                  <li><a href="http://fontawesome.io/">Font Awesome</a> the awesome icon fonts.</li>
+                  <li><a href="https://github.com/rendro/easy-pie-chart">jquery.easy-pie-chart</a> a lightweight plugin to draw simple, animated pie charts for single values</li>
+                  <li><a href="http://noraesae.github.io/perfect-scrollbar/">perfectscrollbar</a> for creating custom scrollbar</li>
+                  <li><a href="https://github.com/angular-ui/ui-select">Select</a> an angularjs version of custom select</li>
+                  <li><a href="https://github.com/fraywing/textAngular">textAngular</a> A radically powerful Text-Editor/Wysiwyg editor for Angular.js!</li>
+                  <li><a href="https://github.com/shader/ng-fullscreen">ng-fullscreen</a> For page full screen.</li>
+              </ul>
+            </section>
+
+
+        </div> <!-- #end col -->
+            
+        </div> <!-- #end row -->
+    </div> <!-- #end container -->
+
+
+
+    <!-- footer -->
+    <footer class="site-foot">
+      <div class="container">
+        <p>Copyright &copy; 2015 <a href="http://themeforest.net/user/solutionportal">solutionportal</a></p>
+      </div>
+    </footer>
+
+
+
+
+
+
+    
+
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/prettify.js"></script>
+
+</body>
+</html>
